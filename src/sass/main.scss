@@ -1,0 +1,31 @@
+.container{
+  max-width: 700px;
+  margin: auto;
+}
+
+
+.element{
+  padding: 20px;
+}
+
+.dark .element{
+  background-color: #212529;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 30px;
+}
+
+.table__row{
+  cursor: pointer;
+}
+
+.selected{
+  td{
+    background-color: #dc3545 !important;
+
+  }
+}
+

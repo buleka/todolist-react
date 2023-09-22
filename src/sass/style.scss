@@ -1,0 +1,30 @@
+@use './base.scss';
+
+@import 'reset-css';
+@import 'fonts.scss';
+@import "main.scss";
+
+html, body, .root {
+  height: 100%;
+  min-height: 100%;
+}
+
+.root{
+  display: flex;
+}
+
+
+body {
+  font-family: system-ui;
+  font-style: normal;
+  font-feature-settings: normal;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  color: #000000;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
