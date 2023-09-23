@@ -18,30 +18,32 @@ export default function RenderTable() {
   }
 
   return(
-    <Table striped bordered hover>
-      <thead>
-      <tr>
-        <td>Name</td>
-        <td>Age</td>
-        <td>subscription</td>
-        <td>employment</td>
-      </tr>
-      </thead>
-      <tbody>
+    <div className={'table-container'}>
+      <Table striped hover>
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">subscription</th>
+          <th scope="col">employment</th>
+        </tr>
+        </thead>
+        <tbody>
 
-      {arrayTask.map((item, index) => {
-        return (
-          <tr data-id={index} key={index + item} onClick={handlerClickTask}
-              className={'table__row' + (parseInt(selectTask) === index ? ' selected' : '')}>
-            <td>{item.name}</td>
-            <td>{item.age}</td>
-            <td>{item.type}</td>
-            <td>{item.employed === true ? 'employed' : 'not employed'}</td>
-          </tr>
-        )
-      })}
-      </tbody>
-    </Table>
+        {arrayTask.map((item, index) => {
+          return (
+            <tr data-id={index} key={index + item} onClick={handlerClickTask}
+                className={'table__row' + (parseInt(selectTask) === index ? ' selected' : '')}>
+              <td>{item.name}</td>
+              <td>{item.age}</td>
+              <td>{item.type}</td>
+              <td>{item.employed === true ? 'employed' : 'not employed'}</td>
+            </tr>
+          )
+        })}
+        </tbody>
+      </Table>
+    </div>
 
   )
 }
