@@ -2,9 +2,9 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { ThemeContext, ThemeProvider } from './themeMode.jsx'
 import RenderTable from './table.jsx'
+import dataUsers from './data.js';
 
-
-const dataArray = JSON.parse(localStorage.getItem('dataArray')) || []
+const dataArray = JSON.parse(localStorage.getItem('dataArray')) || dataUsers;
 
 export const TaskContext = createContext(null)
 
