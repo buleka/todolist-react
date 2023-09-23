@@ -46,51 +46,56 @@ export const Element = () => {
       <div className={'element card'}>
         <div className={'grid'}>
           <div className={'grid__item'}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <fieldset>
-                Insert Row
-                <div className={'mb-3'}>
-                  <input
-                    className={'form-control' + (errors.name ? ' is-invalid' : '')} {...register('name', { required: true })}
-                    type='text'
-                    placeholder={'Name'} />
-                  {errors.name && <span className={'invalid-feedback'}>This field is required</span>}
+            <div className={'card'}>
+              <div className={'card-body'}>
+                <div>
+                  <h5 className={'card-title'}>Insert Row</h5>
                 </div>
-                <div className={'mb-3'}>
-                  <input {...register('age', { required: true })}
-                         className={'form-control' + (errors.age ? ' is-invalid' : '')} type='number'
-                         pattern='[0-9]+'
-                         placeholder={'Age'}
-                         maxLength='3' />
-                  {errors.age && <span className={'invalid-feedback'}>This field is required</span>}
-                </div>
-                <div className={'mb-3'}>
-                  <select className={'form-select'}
-                          aria-label='Default select example'  {...register('type', { required: true })}>
-                    <option>subscribed</option>
-                    <option>not subscribed</option>
-                    <option>other</option>
-                  </select>
-                  {errors.type && <span>This field is required</span>}
-                </div>
-                <div className={'mb-3'}>
-                  <div className='form-check'>
-                    <input id='flexCheckDefault' className={'form-check-input'} {...register('employed')}
-                           type='checkbox' />
-                    <label className={'form-check-label'} htmlFor='flexCheckDefault'>Employed</label>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <fieldset>
+                    <div className={'mb-3'}>
+                      <input
+                        className={'form-control' + (errors.name ? ' is-invalid' : '')} {...register('name', { required: true })}
+                        type='text'
+                        placeholder={'Name'} />
+                    </div>
+                    <div className={'mb-3'}>
+                      <input {...register('age', { required: true , min: 18, max: 99})}
+                             className={'form-control' + (errors.age ? ' is-invalid' : '')}
+                             type='number'
+                             placeholder={'Age'} />
+                    </div>
+                    <div className={'mb-3'}>
+                      <select className={'form-select'}
+                              aria-label='Default select example'  {...register('type', { required: true })}>
+                        <option>subscribed</option>
+                        <option>not subscribed</option>
+                        <option>other</option>
+                      </select>
+                      {errors.type && <span>This field is required</span>}
+                    </div>
+                    <div className={'mb-3'}>
+                      <div className='form-check'>
+                        <input id='flexCheckDefault' className={'form-check-input'} {...register('employed')}
+                               type='checkbox' />
+                        <label className={'form-check-label'} htmlFor='flexCheckDefault'>Employed</label>
+                      </div>
+                    </div>
+                    <div className={'mb-3 d-grid'}>
+                      <button type='submit' className={'btn btn-primary'}>Insert</button>
+                    </div>
+                  </fieldset>
+                  <hr/>
+                  <div className={'mb-3'}>
+                    <SwitchTheme />
                   </div>
-                </div>
-                <div className={'mb-3 d-grid'}>
-                  <button type='submit' className={'btn btn-primary'}>Insert</button>
-                </div>
-              </fieldset>
-              <div className={'mb-3'}>
-                <SwitchTheme />
+                  <div className={'mb-3 d-grid'}>
+                    <button className={'btn btn-danger'} onClick={handlerDelete}>Delete</button>
+                  </div>
+                </form>
+
               </div>
-              <div className={'mb-3 d-grid'}>
-                <button className={'btn btn-danger'} onClick={handlerDelete}>Delete</button>
-              </div>
-            </form>
+            </div>
           </div>
           <div className={'grid__item'}>
             <div>
